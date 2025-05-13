@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Quiz {
     public static void main(String[] args) {
         //Escribe un programa que sea un pequeño juego trivial de acertar preguntas
@@ -36,7 +38,36 @@ public class Quiz {
         */
 
         //Respuestas: 1. b / 2. c / 3. b y d / 4. a
+        Scanner scanner = new Scanner(System.in);
+        String[] answers = {"b", "c", "b y d", "a"};
+        String[] responses = {"", "", "", ""};
+        System.out.println("1. ¿Quién fue la hacker que escribió en 1994 Hacking the Wetware?");
+        System.out.println("\ta. Ada Lovelace\n\tb. Jude Milhon\n\tc. Martha Ackelsberg\n\td. Jane Jacobs");
+        System.out.println("\n2. ¿Quién es Fuencisla Clemares?");
+        System.out.println("\ta. La directora general de IBM Europa, Oriente Medio y África\n\tb. La vicepresidenta de Microsoft Western Europe\n\tc. La directora general de Google en España y Portugal\n\td. Fundadora y CEO de Marsi Bionics");
+        System.out.println("\n3. ¿Quién fue Hedwig Eva Maria Kiesler, conocida como Hedy Lamarr?");
+        System.out.println("\ta. Primera programadora de software\n\tb. Una actriz de cine\n\tc. Inventora del procesador de datos\n\td. Inventora del sistema de comunicaciones de salto de frecuencia, base del wifi, bluetooth y GPS");
+        System.out.println("\n4. ¿Cómo se llamaban las principales 'mujeres ocultas' de la NASA, encargadas de los cálculos para que la misión del Apolo 11 concluyera con éxito?");
+        System.out.println("\ta. Katherine Johnson, Dorothy Vaughan y Mary Jackson\n\tb. Jessica Miller, Emily Johnson, Sarah Davis\n\tc. bell hooks, Toni Morrison y Alice Walker\n\td. Emmeline Pankhurst, Millicent Fawcett y Harriet Harman");
+        responses[0] = scanner.nextLine();
+        responses[1] = scanner.nextLine();
+        responses[2] = scanner.nextLine();
+        responses[3] = scanner.nextLine();
 
+        byte score = 0;
+        for (byte i = 0; i < 4; i++){
+            if(responses[i].equalsIgnoreCase(answers[i])){
+                score += 5;
+            }
+        }
+        if (score >= 15){
+            System.out.println("Score: " + score + "/20. Tú si que sabes mucho");
+        } else if (score >= 5) {
+            System.out.println("Score: " + score + "/20. No lo has hecho mal");
+        } else {
+            System.out.println("Score: " + score + "/20. Buena suerte la próxima vez");
+        }
+        scanner.close();
     }
     
 }
